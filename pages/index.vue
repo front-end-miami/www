@@ -1,24 +1,23 @@
 <template>
   <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        www
-      </h1>
-      <h2 class="subtitle">
-        frontend.miami site
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+    <div class="row vh-100 align-items-center justify-content-center">
+      <div class="col-10 mx-auto">
+        <div class="row">
+          <div class="col text-center">
+            <logo/>
+          </div>
+          <div class="col">
+            <h1 class="title">{{title}}</h1>
+            <a href="http://meetu.ps/c/z2w0/4PjfC/f">
+              Meetup
+            </a>
+            <a href="http://meetu.ps/c/z2w0/4PjfC/f" class="btn btn-outline-success">
+              Slack
+            </a>
+            <div v-html="description">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -26,43 +25,33 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import SlackLogo from '../components/SlackLogo'
 
 export default {
   components: {
+    SlackLogo,
     Logo
-  }
+  },
+  data: () => ({
+    title: 'Front-End Miami',
+    description: `<p>
+        Front-End Developers of Miami is a MeetUp group that tries to have monthly
+        gatherings about topics relevant to web development and front-end engineering.
+      </p>
+      <p>
+        Venues have included The LAB Miami and O Cinema Wynwood, both in Wynwood.
+        Topics include, but are certainly not limited to the following: responsive design using CSS, HTML5,
+        client side programming and practices with Javascript as well as the tools
+        and practices to keep everything in its place.
+      </p><p>
+        We are always looking for sponsors (for food & beverages)as well as speakers for our gatherings.
+      </p>`,
+    links: [
+      {}
+    ]
+  })
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
