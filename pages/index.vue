@@ -7,14 +7,18 @@
             <logo/>
           </div>
           <div class="col">
-            <h1 class="title">{{title}}</h1>
-            <a href="http://meetu.ps/c/z2w0/4PjfC/f">
+            <h1 class="title">{{content.title}}</h1>
+            <a :href="content.links.slack">
               Meetup
             </a>
-            <a href="http://meetu.ps/c/z2w0/4PjfC/f" class="btn btn-outline-success">
-              Slack
-            </a>
-            <div v-html="description">
+            <slack-button/>
+            <div class="card">
+              <div class="card-body">
+                <div class="card-text">
+                  <div v-html="content.description">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -25,16 +29,17 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import SlackLogo from '../components/SlackLogo'
+import SlackButton from '../components/SlackButton'
 
 export default {
   components: {
-    SlackLogo,
+    SlackButton,
     Logo
   },
   data: () => ({
-    title: 'Front-End Miami',
-    description: `<p>
+    content: {
+      title: 'Front-End Miami',
+      description: `<p>
         Front-End Developers of Miami is a MeetUp group that tries to have monthly
         gatherings about topics relevant to web development and front-end engineering.
       </p>
@@ -46,9 +51,11 @@ export default {
       </p><p>
         We are always looking for sponsors (for food & beverages)as well as speakers for our gatherings.
       </p>`,
-    links: [
-      {}
-    ]
+      links: {
+        meetup: 'http://meetu.ps/c/z2w0/4PjfC/f',
+        slack: 'https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LTdiMmRjNDA2ODE5YWI0NGFmZjg0ZGUzZTUxMDg4MmJmYWI4ZWZjZDNjZjJkYmUyMThlMDVlMzA2YWY4ZWU5YWQ'
+      }
+    }
   })
 }
 </script>

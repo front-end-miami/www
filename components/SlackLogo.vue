@@ -1,5 +1,5 @@
 <template>
-  <svg class="c-nav--footer__svgicon c-slackhash" height="54" viewBox="0 0 54 54" width="54"
+  <svg viewBox="0 0 54 54"
        xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
       <path
