@@ -19,4 +19,13 @@ $ yarn start
 $ yarn run generate
 ```
 
+### Deploy
+```sh
+# generate static project
+yarn generate
+
+# deploy to gh-page branch
+yarn deploy
+```
+
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
