@@ -3,15 +3,15 @@
     <div class="row vh-100 align-items-center justify-content-center">
       <div class="col-10 mx-auto">
         <div class="row">
-          <div class="col text-center">
-            <logo/>
+          <div class="col-12 col-lg-6 text-center">
+            <logo style="height: 100%; width: 100%"/>
           </div>
-          <div class="col">
+          <div class="col-12 col-lg-6">
             <h1 class="title">{{content.title}}</h1>
-            <a :href="content.links.slack">
-              Meetup
-            </a>
-            <slack-button/>
+            <div class="my-3">
+              <meetup-button/>
+              <slack-button/>
+            </div>
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
@@ -30,9 +30,11 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import SlackButton from '../components/SlackButton'
+import MeetupButton from '../components/MeetupButton'
 
 export default {
   components: {
+    MeetupButton,
     SlackButton,
     Logo
   },
@@ -50,11 +52,7 @@ export default {
         and practices to keep everything in its place.
       </p><p>
         We are always looking for sponsors (for food & beverages)as well as speakers for our gatherings.
-      </p>`,
-      links: {
-        meetup: 'http://meetu.ps/c/z2w0/4PjfC/f',
-        slack: 'https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LTdiMmRjNDA2ODE5YWI0NGFmZjg0ZGUzZTUxMDg4MmJmYWI4ZWZjZDNjZjJkYmUyMThlMDVlMzA2YWY4ZWU5YWQ'
-      }
+      </p>`
     }
   })
 }
