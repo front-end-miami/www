@@ -8,14 +8,14 @@
           </div>
           <div class="col-12 col-lg-6">
             <h1 class="title">{{content.title}}</h1>
-            <div class="my-3">
+            <nav class="my-3">
               <meetup-button/>
               <slack-button/>
-            </div>
+            </nav>
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
-                  <div v-html="content.description">
+                  <div id="description" v-html="content.description">
                   </div>
                 </div>
               </div>
@@ -33,6 +33,15 @@ import SlackButton from '../components/SlackButton'
 import MeetupButton from '../components/MeetupButton'
 
 export default {
+  head () {
+    return {
+      meta: [{
+        hid: `description`,
+        name: 'description',
+        content: `Front-End Developers of Miami is a MeetUp group that tries to have monthly gatherings about topics relevant to web development and front-end engineering.`
+      }]
+    }
+  },
   components: {
     MeetupButton,
     SlackButton,
