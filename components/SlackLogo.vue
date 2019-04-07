@@ -1,5 +1,6 @@
-<template>
-  <svg viewBox="0 0 54 54"
+<template functional>
+  <svg :class="data.staticClass || ''" v-bind="data.attrs"
+       viewBox="0 0 54 54"
        xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
       <path
@@ -23,7 +24,3 @@
     name: "SlackLogo"
   }
 </script>
-
-<style scoped>
-
-</style>
