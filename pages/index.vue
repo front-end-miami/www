@@ -13,6 +13,7 @@
               <slack-button/>
             </nav>
             <NextMeetup></NextMeetup>
+            <h5>About</h5>
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
