@@ -12,6 +12,8 @@
               <meetup-button/>
               <slack-button/>
             </nav>
+            <NextMeetup></NextMeetup>
+            <h5>About</h5>
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
@@ -28,9 +30,10 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import SlackButton from '../components/SlackButton'
-import MeetupButton from '../components/MeetupButton'
+import Logo         from '~/components/Logo.vue'
+import SlackButton  from '~/components/SlackButton'
+import MeetupButton from '~/components/MeetupButton'
+import NextMeetup   from '~/components/NextMeetup'
 
 export default {
   head () {
@@ -43,6 +46,7 @@ export default {
     }
   },
   components: {
+    NextMeetup,
     MeetupButton,
     SlackButton,
     Logo
