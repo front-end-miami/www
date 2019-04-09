@@ -82,7 +82,7 @@
         const [timesString, ampm] = date.toLocaleTimeString().split(' ')
         const [hours, minutes, seconds] = timesString.split(':')
 
-        return `${hours}:${seconds} ${ampm}`
+        return `${hours}:${seconds}${ampm.toLowerCase()}`
       }
     },
     mounted () {
