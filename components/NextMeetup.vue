@@ -30,7 +30,8 @@
      <div class="card mb-3 border-warning event-wrapper">
         <a :href="meetup.link" class="card-body text-decoration-none text-dark">
           <h5 class="card-title">
-            <span class="event-date">{{ meetup.local_date | dateConvert }}</span> -
+            <span class="event-date">{{ meetup.local_date | dateConvert }}</span> @
+            <span class="event-time">{{ meetup.time | timeConvert }}</span> -
             <span class="event-title">{{ meetup.name }}</span>
           </h5>
           <div class="card-text event-description" v-html="meetup.description"></div>
@@ -73,10 +74,15 @@
     },
     filters: {
       dateConvert: function (val) {
-        let date = val.split('-')
-        const month = date[1]
-        const day = date[2]
+        const [year, month, day] = val.split('-')
         return `${month}/${day}`
+      },
+      timeConvert: function (val) {
+        let date = new Date(val)
+        const [timesString, ampm] = date.toLocaleTimeString().split(' ')
+        const [hours, minutes, seconds] = timesString.split(':')
+
+        return `${hours}:${seconds} ${ampm}`
       }
     },
     mounted () {
