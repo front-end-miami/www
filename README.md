@@ -2,6 +2,11 @@
 
 > frontend.miami site
 
+#### /invite
+
+Simple Redirect Route to our slack inviter.
+
+
 ## Build Setup
 
 ``` bash
