@@ -29,10 +29,10 @@
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import SlackButton from "~/components/SlackButton";
-import MeetupButton from "~/components/MeetupButton";
-import NextMeetup from "~/components/NextMeetup";
+import Logo from '~/components/Logo.vue'
+import SlackButton from '~/components/SlackButton'
+import MeetupButton from '~/components/MeetupButton'
+import NextMeetup from '~/components/NextMeetup'
 
 export default {
   head() {
@@ -40,11 +40,11 @@ export default {
       meta: [
         {
           hid: `description`,
-          name: "description",
+          name: 'description',
           content: this.content.tagline
         }
       ]
-    };
+    }
   },
   components: {
     NextMeetup,
@@ -54,9 +54,9 @@ export default {
   },
   data: () => ({
     content: {
-      title: "Front-End Miami",
+      title: 'Front-End Miami',
       tagline:
-        "Front-End Developers of Miami is a MeetUp group based in Miami, FL that hosts monthly gatherings about topics relevant to web development and front-end engineering.",
+        'Front-End Developers of Miami is a MeetUp group based in Miami, FL that hosts monthly gatherings about topics relevant to web development and front-end engineering.',
       description: `
       <p>
         Venues have included The LAB Miami and O Cinema Wynwood, both in Wynwood.
@@ -70,10 +70,10 @@ export default {
   }),
   computed: {
     intro() {
-      return `<p>${this.content.tagline}</p>${this.content.description}`;
+      return `<p>${this.content.tagline}</p>${this.content.description}`
     }
   }
-};
+}
 </script>
 
 <style>
