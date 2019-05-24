@@ -2,6 +2,12 @@
 
 > frontend.miami site
 
+## Pages
+
+#### /index
+
+Homepage of the site, featuring links to the Slack channel and MeetUp page, as well as the next MeetUp event.
+
 #### /invite
 
 Simple Redirect Route to our slack inviter.
@@ -34,3 +40,8 @@ yarn deploy
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## To-Dos
+[] Speaker submissions page
+[] Content edits
+[] Layout revisions?
