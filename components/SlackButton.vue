@@ -15,7 +15,7 @@
     data: () => ({
       content: {
         links: {
-          slack: 'https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LTdiMmRjNDA2ODE5YWI0NGFmZjg0ZGUzZTUxMDg4MmJmYWI4ZWZjZDNjZjJkYmUyMThlMDVlMzA2YWY4ZWU5YWQ'
+          slack: 'https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LWUzNTc2MmJjYzE0NTg1YjI0YmFmNjE3MGY4MzAxYmZlNjlkMTViNDEyODdkYTJhMzAwNjBjMzYxNzRiMzNkMzY'
         }
       }
     })

@@ -18,7 +18,7 @@
       intervalRef: null, // A reference for the set timer so we can clear it.
       timerLength: 3000,
       timerInterval: 100,
-      redirectUrl: "https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LTdiMmRjNDA2ODE5YWI0NGFmZjg0ZGUzZTUxMDg4MmJmYWI4ZWZjZDNjZjJkYmUyMThlMDVlMzA2YWY4ZWU5YWQ"
+      redirectUrl: "https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LWUzNTc2MmJjYzE0NTg1YjI0YmFmNjE3MGY4MzAxYmZlNjlkMTViNDEyODdkYTJhMzAwNjBjMzYxNzRiMzNkMzY"
     }),
     methods: {
       setTime () {
