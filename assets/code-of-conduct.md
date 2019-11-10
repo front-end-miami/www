@@ -1,4 +1,5 @@
-Frontend Miami's Code of Conduct
+### Frontend Miami's Code of Conduct
+
 The Frontend Miami MeetUp group expects that network activities, events, and digital forums:
 
 Are a safe and respectful environment for all participants.
