@@ -1,12 +1,14 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col col-lg-6 mx-auto my-5">
+      <div class="col mx-auto my-5 text-center">
+        <logo height="5rem" width="5rem"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-lg-6 mx-auto">
         <div class="card">
           <div class="card-body">
-            <div class="card-title">
-              <logo height="5rem" width="5rem"/>
-            </div>
             <div v-html="coc"></div>
           </div>
         </div>
