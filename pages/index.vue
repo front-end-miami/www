@@ -12,11 +12,12 @@
               <meetup-button/>
               <slack-button/>
             </nav>
+            <NextMeetup></NextMeetup>
+            <h5>About</h5>
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
-                  <div id="description" v-html="content.description">
-                  </div>
+                  <div id="description" v-html="intro"></div>
                 </div>
               </div>
             </div>
@@ -29,20 +30,24 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import SlackButton from '../components/SlackButton'
-import MeetupButton from '../components/MeetupButton'
+import SlackButton from '~/components/SlackButton'
+import MeetupButton from '~/components/MeetupButton'
+import NextMeetup from '~/components/NextMeetup'
 
 export default {
-  head () {
+  head() {
     return {
-      meta: [{
-        hid: `description`,
-        name: 'description',
-        content: `Front-End Developers of Miami is a MeetUp group that tries to have monthly gatherings about topics relevant to web development and front-end engineering.`
-      }]
+      meta: [
+        {
+          hid: `description`,
+          name: 'description',
+          content: this.content.tagline
+        }
+      ]
     }
   },
   components: {
+    NextMeetup,
     MeetupButton,
     SlackButton,
     Logo
@@ -50,20 +55,24 @@ export default {
   data: () => ({
     content: {
       title: 'Front-End Miami',
-      description: `<p>
-        Front-End Developers of Miami is a MeetUp group that tries to have monthly
-        gatherings about topics relevant to web development and front-end engineering.
-      </p>
+      tagline:
+        'Front-End Developers of Miami is a MeetUp group based in Miami, FL that hosts monthly gatherings about topics relevant to web development and front-end engineering.',
+      description: `
       <p>
         Venues have included The LAB Miami and O Cinema Wynwood, both in Wynwood.
         Topics include, but are certainly not limited to the following: responsive design using CSS, HTML5,
         client side programming and practices with Javascript as well as the tools
-        and practices to keep everything in its place.
+        and best practices to keep everything in its place.
       </p><p>
-        We are always looking for sponsors (for food & beverages)as well as speakers for our gatherings.
+        We are always interested in sponsorship opportunities for venues, food, and beverages, and we welcome speakers of all experience levels and backgrounds.
       </p>`
     }
-  })
+  }),
+  computed: {
+    intro() {
+      return `<p>${this.content.tagline}</p>${this.content.description}`
+    }
+  }
 }
 </script>
 
