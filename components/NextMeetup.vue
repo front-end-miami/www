@@ -18,9 +18,12 @@
 
    <!--Empty-->
    <template v-else-if="hasNoMeetup">
-     <div class="card alert-primary mb-3 text-primary">
+     <div class="card alert-warning mb-3">
        <div class="card-body">
-         <p class="card-text">They are no events scheduled at this time, or we an experiencing an error with the api. 😢</p>
+         <p class="card-text">
+           ⚠️ There are no events scheduled at this time, or we an experiencing an error with the api.
+           You can find event details on <a href="https://www.meetup.com/Front-end-Developers-of-Miami/">our meetup page</a>.
+         </p>
        </div>
      </div>
    </template>
@@ -54,7 +57,7 @@
     }),
     computed: {
       hasNoMeetup () {
-        return Object.keys(this.meetup).length <= 0
+        return !this.meetup
       }
     },
     methods: {
