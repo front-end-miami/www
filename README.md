@@ -31,10 +31,17 @@ $ yarn run generate
 ```
 
 ### Deploy
-```sh
-# generate static project
-yarn generate
 
+#### Automated
+
+Using a github action this repo is automatically compiled and deployed when a Pull Request is merged into the Master
+ branch. 
+ 
+#### Manual
+
+In the case of failure the site can be deployed with the following command.
+
+```sh
 # deploy to gh-page branch
 yarn deploy
 ```
@@ -42,6 +49,6 @@ yarn deploy
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 ## To-Dos
-[] Speaker submissions page
-[] Content edits
-[] Layout revisions?
+- [] Speaker submissions page
+- [] Content edits
+- [] Layout revisions?
