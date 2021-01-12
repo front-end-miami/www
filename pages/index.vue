@@ -8,7 +8,7 @@
           </div>
           <div class="col-12 col-lg-6">
             <h1 class="title">{{content.title}}</h1>
-            <nav class="my-3">
+            <nav class="my-5">
               <meetup-button/>
               <slack-button/>
               <donate-button/>
@@ -20,6 +20,11 @@
                 <div class="card-text">
                   <div id="description" v-html="intro"></div>
                 </div>
+              </div>
+            </div>
+            <div class="row py-5">
+              <div class="col text-center">
+                &copy; {{ copyYear }} Front-End Miami &bullet; <NuxtLink to="/code-of-conduct">Code Of Conduct</NuxtLink>
               </div>
             </div>
           </div>
@@ -61,19 +66,22 @@ export default {
       tagline:
         'Front-End Developers of Miami is a MeetUp group based in Miami, FL that hosts monthly gatherings about topics relevant to web development and front-end engineering.',
       description: `
-      <p>
-        Venues have included The LAB Miami and O Cinema Wynwood, both in Wynwood.
-        Topics include, but are certainly not limited to the following: responsive design using CSS, HTML5,
-        client side programming and practices with Javascript as well as the tools
-        and best practices to keep everything in its place.
-      </p><p>
-        We are always interested in sponsorship opportunities for venues, food, and beverages, and we welcome speakers of all experience levels and backgrounds.
-      </p>`
+        <p>
+          Venues have included The LAB Miami and O Cinema Wynwood, both in Wynwood.
+          Topics include, but are certainly not limited to the following: responsive design using CSS, HTML5,
+          client side programming and practices with Javascript as well as the tools
+          and best practices to keep everything in its place.
+        </p><p>
+          We are always interested in sponsorship opportunities for venues, food, and beverages, and we welcome speakers of all experience levels and backgrounds.
+        </p>`
     }
   }),
   computed: {
     intro() {
       return `<p>${this.content.tagline}</p>${this.content.description}`
+    },
+    copyYear () {
+      return new Date().getFullYear()
     }
   }
 }

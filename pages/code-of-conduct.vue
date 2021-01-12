@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col mx-auto my-5 text-center">
         <nuxt-link to="/">
-          <logo height="5rem" width="5rem"/>
+          <logo size="250px"/>
         </nuxt-link>
       </div>
     </div>
@@ -16,12 +16,18 @@
         </div>
       </div>
     </div>
+    <div class="row py-5">
+      <div class="col text-center">
+        &copy; {{ copyYear }} Front-End Miami &bullet; <NuxtLink to="/">Home</NuxtLink>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import Logo from '~/components/Logo'
-  import coc from '../assets/code-of-conduct.md'
+  import coc from '~/assets/code-of-conduct.md'
+
   export default {
     name: 'code-of-conduct',
     asyncData: () => ({ coc }),
