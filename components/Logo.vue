@@ -1,5 +1,6 @@
-<template>
-  <svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1">
+<template functional>
+  <svg :class="data.staticClass" v-bind="data.attrs" :style="data.staticStyle"
+       width="500px" height="500px" viewBox="0 0 500 500" version="1.1">
     <g id="v1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <polygon id="leaf" fill="#417505" transform="translate(270.500000, 75.500000) rotate(-135.000000) translate(-270.500000, -75.500000) " points="270.5 49 297 102 244 102"></polygon>
       <circle id="body" stroke="#F5A623" stroke-width="20" fill="#FFF6DE" cx="250" cy="283" r="190"></circle>
@@ -24,6 +25,3 @@
     </g>
   </svg>
 </template>
-
-<style>
-</style>
