@@ -2,7 +2,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col mx-auto my-5 text-center">
-        <logo height="5rem" width="5rem"/>
+        <nuxt-link to="/">
+          <logo height="5rem" width="5rem"/>
+        </nuxt-link>
       </div>
     </div>
     <div class="row">
