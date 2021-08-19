@@ -1,55 +1,74 @@
 <template>
- <section>
-   <h5>Events</h5>
+  <section>
+    <h5>Events</h5>
 
-   <!--Loading-->
-   <div v-if="loading" class="spinner-border text-warning" role="status">
-     <span class="sr-only">Loading...</span>
-   </div>
+    <!--Loading-->
+    <div
+      v-if="loading"
+      class="spinner-border text-warning"
+      role="status"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
 
-   <!--Error-->
-   <template v-else-if="error">
-     <div class="card alert-danger mb-3 text-danger">
-       <div class="card-body">
-         <strong>Error! </strong><p class="card-text">{{ error }}</p>
-       </div>
-     </div>
-   </template>
+    <!--Error-->
+    <template v-else-if="error">
+      <div class="card alert-danger mb-3 text-danger">
+        <div class="card-body">
+          <strong>Error! </strong>
+          <p class="card-text">
+            {{ error }}
+          </p>
+        </div>
+      </div>
+    </template>
 
-   <!--Empty-->
-   <template v-else-if="hasNoMeetup">
-     <div class="card alert-warning mb-3">
-       <div class="card-body">
-         <p class="card-text">
-           ⚠️ There are no events scheduled at this time, or we an experiencing an error with the api.
-           You can find event details on <a href="https://www.meetup.com/Front-end-Developers-of-Miami/">our meetup page</a>.
-         </p>
-       </div>
-     </div>
-   </template>
+    <!--Empty-->
+    <template v-else-if="hasNoMeetup">
+      <div class="card alert-warning mb-3">
+        <div class="card-body">
+          <p class="card-text">
+            ⚠️ There are no events scheduled at this time, or we an experiencing
+            an error with the api. You can find event details on
+            <a
+              href="https://www.meetup.com/Front-end-Developers-of-Miami/"
+            >our meetup page</a>.
+          </p>
+        </div>
+      </div>
+    </template>
 
-   <!--Content-->
-   <template v-else>
-     <div class="card mb-3 border-warning event-wrapper">
-        <a :href="meetup.link" class="card-body text-decoration-none text-dark">
+    <!--Content-->
+    <template v-else>
+      <div class="card mb-3 border-warning event-wrapper">
+        <a
+          :href="meetup.link"
+          class="card-body text-decoration-none text-dark"
+        >
           <h5 class="card-title">
-            <span class="event-date">{{ meetup.local_date | dateConvert }}</span> @
-            <span class="event-time">{{ meetup.time | timeConvert }}</span> -
+            <span class="event-date">{{
+              meetup.local_date | dateConvert
+            }}</span>
+            @ <span class="event-time">{{ meetup.time | timeConvert }}</span> -
             <span class="event-title">{{ meetup.name }}</span>
           </h5>
-          <div class="card-text event-description" v-html="meetup.description"></div>
+          <div
+            class="card-text event-description"
+            v-html="meetup.description"
+          />
           <span style="text-decoration: underline">More Details</span>
         </a>
-     </div>
-   </template>
- </section>
+      </div>
+    </template>
+  </section>
 </template>
 
 <script>
-  import jsonp from 'jsonp'
+  import { jsonpFetch, dateConvert, timeConvert } from '~/libs/utilities'
 
   export default {
     name: 'NextMeetup',
+    filters: { dateConvert, timeConvert },
     data: () => ({
       meetup: {},
       loading: true,
@@ -60,40 +79,25 @@
         return !this.meetup
       }
     },
+    async mounted () {
+      await this.fetchMeetup()
+    },
     methods: {
-      fetchMeetup () {
-        let MEETUP_URL = 'https://api.meetup.com/Front-end-Developers-of-Miami/events?page=1'
-        this.loading = true
-        jsonp(MEETUP_URL, null, (err, res) => {
-          if (err) {
-            console.error(err.message);
-            this.error = err.message
-          } else {
-            this.meetup = res.data[0]
-          }
-          this.loading = false
-        });
-      }
-    },
-    filters: {
-      dateConvert: function (val) {
-        const [year, month, day] = val.split('-')
-        return `${month}/${day}`
-      },
-      timeConvert: function (val) {
-        let date = new Date(val)
-        const [timesString, ampm] = date.toLocaleTimeString().split(' ')
-        const [hours, minutes, seconds] = timesString.split(':')
+      async fetchMeetup () {
+        const MEETUP_URL =
+          'https://api.meetup.com/Front-end-Developers-of-Miami/events?page=1'
 
-        return `${hours}:${seconds}${ampm.toLowerCase()}`
+        try {
+          this.loading = true
+          const res = await jsonpFetch(MEETUP_URL)
+          this.meetup = res.data[0]
+        } catch (error) {
+          console.error(error.message)
+          this.error = error.message
+        } finally {
+          this.loading = false
+        }
       }
-    },
-    mounted () {
-      this.fetchMeetup()
     }
   }
 </script>
-
-<style scoped>
-
-</style>
