@@ -3,13 +3,7 @@
     <h5>Events</h5>
 
     <!--Loading-->
-    <div
-      v-if="loading"
-      class="spinner-border text-warning"
-      role="status"
-    >
-      <span class="sr-only">Loading...</span>
-    </div>
+    <next-meetup-loading v-if="loading" />
 
     <!--Error-->
     <template v-else-if="error">
@@ -65,9 +59,11 @@
 
 <script>
   import { jsonpFetch, dateConvert, timeConvert } from '~/libs/utilities'
+  import NextMeetupLoading from './NextMeetupLoading.vue'
 
   export default {
     name: 'NextMeetup',
+    components: { NextMeetupLoading },
     filters: { dateConvert, timeConvert },
     data: () => ({
       meetup: {},
