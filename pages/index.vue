@@ -4,27 +4,35 @@
       <div class="col-10 mx-auto">
         <div class="row">
           <div class="col-12 col-lg-6 text-center">
-            <logo style="height: 100%; width: 100%"/>
+            <logo style="height: 100%; width: 100%" />
           </div>
           <div class="col-12 col-lg-6">
-            <h1 class="title">{{content.title}}</h1>
+            <h1 class="title">
+              {{ content.title }}
+            </h1>
             <nav class="my-5">
-              <meetup-button/>
-              <slack-button/>
-              <donate-button/>
+              <meetup-button />
+              <slack-button />
+              <donate-button />
             </nav>
-            <NextMeetup></NextMeetup>
+            <NextMeetup />
             <h5>About</h5>
             <div class="card">
               <div class="card-body">
                 <div class="card-text">
-                  <div id="description" v-html="intro"></div>
+                  <div
+                    id="description"
+                    v-html="intro"
+                  />
                 </div>
               </div>
             </div>
             <div class="row py-5">
               <div class="col text-center">
-                &copy; {{ copyYear }} Front-End Miami &bullet; <NuxtLink to="/code-of-conduct">Code Of Conduct</NuxtLink>
+                &copy; {{ copyYear }} Front-End Miami &bull;
+                <NuxtLink to="/code-of-conduct">
+                  Code Of Conduct
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -35,37 +43,26 @@
 </template>
 
 <script>
-import Logo         from '~/components/Logo.vue'
-import SlackButton  from '~/components/SlackButton'
-import MeetupButton from '~/components/MeetupButton'
-import NextMeetup   from '~/components/NextMeetup'
-import DonateButton from '~/components/DonateButton'
+  import Logo from '~/components/Logo.vue'
+  import SlackButton from '~/components/SlackButton'
+  import MeetupButton from '~/components/MeetupButton'
+  import NextMeetup from '~/components/NextMeetup'
+  import DonateButton from '~/components/DonateButton'
 
-export default {
-  head() {
-    return {
-      meta: [
-        {
-          hid: `description`,
-          name: 'description',
-          content: this.content.tagline
-        }
-      ]
-    }
-  },
-  components: {
-    DonateButton,
-    NextMeetup,
-    MeetupButton,
-    SlackButton,
-    Logo
-  },
-  data: () => ({
-    content: {
-      title: 'Front-End Miami',
-      tagline:
-        'Front-End Developers of Miami is a MeetUp group based in Miami, FL that hosts monthly gatherings about topics relevant to web development and front-end engineering.',
-      description: `
+  export default {
+    components: {
+      DonateButton,
+      NextMeetup,
+      MeetupButton,
+      SlackButton,
+      Logo
+    },
+    data: () => ({
+      content: {
+        title: 'Front-End Miami',
+        tagline:
+          'Front-End Developers of Miami is a MeetUp group based in Miami, FL that hosts monthly gatherings about topics relevant to web development and front-end engineering.',
+        description: `
         <p>
           Venues have included The LAB Miami and O Cinema Wynwood, both in Wynwood.
           Topics include, but are certainly not limited to the following: responsive design using CSS, HTML5,
@@ -74,18 +71,26 @@ export default {
         </p><p>
           We are always interested in sponsorship opportunities for venues, food, and beverages, and we welcome speakers of all experience levels and backgrounds.
         </p>`
-    }
-  }),
-  computed: {
-    intro() {
-      return `<p>${this.content.tagline}</p>${this.content.description}`
+      }
+    }),
+    head () {
+      return {
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.content.tagline
+          }
+        ]
+      }
     },
-    copyYear () {
-      return new Date().getFullYear()
+    computed: {
+      intro () {
+        return `<p>${this.content.tagline}</p>${this.content.description}`
+      },
+      copyYear () {
+        return new Date().getFullYear()
+      }
     }
   }
-}
 </script>
-
-<style>
-</style>
