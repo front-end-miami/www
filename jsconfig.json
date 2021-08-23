@@ -1,0 +1,4 @@
+{
+  "include": ["./**/*.vue", "./**/*.js"],
+  "exclude": ["./node_modules", "./.nuxt", "./dist"]
+}

@@ -2,10 +2,27 @@
   <section class="container">
     <div class="row vh-100 align-items-center justify-content-center">
       <div class="col-12 mx-auto">
-        <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
-          <iframe src="https://giphy.com/embed/l4JyOCNEfXvVYEqB2" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <div
+          style="
+            width: 100%;
+            height: 0;
+            padding-bottom: 56%;
+            position: relative;
+          "
+        >
+          <iframe
+            src="https://giphy.com/embed/l4JyOCNEfXvVYEqB2"
+            width="100%"
+            height="100%"
+            style="position: absolute"
+            frameBorder="0"
+            class="giphy-embed"
+            allowFullScreen
+          />
         </div>
-        <h3 class="text-center">Redirecting to Slack Invite in {{timerLength / 100}}</h3>
+        <h3 class="text-center">
+          Redirecting to Slack Invite in {{ timerLength / 100 }}
+        </h3>
       </div>
     </div>
   </section>
@@ -13,13 +30,17 @@
 
 <script>
   export default {
-    name: "invite",
+    name: 'Invite',
     data: () => ({
       intervalRef: null, // A reference for the set timer so we can clear it.
       timerLength: 3000,
       timerInterval: 100,
-      redirectUrl: "https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LWUzNTc2MmJjYzE0NTg1YjI0YmFmNjE3MGY4MzAxYmZlNjlkMTViNDEyODdkYTJhMzAwNjBjMzYxNzRiMzNkMzY"
+      redirectUrl:
+        'https://join.slack.com/t/fedm/shared_invite/enQtMzgyMTMzNTI5NDQ3LWUzNTc2MmJjYzE0NTg1YjI0YmFmNjE3MGY4MzAxYmZlNjlkMTViNDEyODdkYTJhMzAwNjBjMzYxNzRiMzNkMzY'
     }),
+    mounted () {
+      this.startTimer()
+    },
     methods: {
       setTime () {
         // EW mutations..
@@ -27,21 +48,20 @@
 
         // We could use a watch for this but since we are already
         // calling this with every change there is no need.
-        if (0 >= this.timerLength) {
+        if (this.timerLength <= 0) {
           this.clearTimer() // Always clear your interval timers
-          this.redirect();
+          this.redirect()
         }
       },
       startTimer () {
-        this.intervalRef = setInterval(() => this.setTime(), this.timerInterval);
+        this.intervalRef = setInterval(() => this.setTime(), this.timerInterval)
       },
       clearTimer () {
         clearInterval(this.intervalRef)
       },
       redirect () {
         window.location.replace(this.redirectUrl)
-      },
-    },
-    mounted () { this.startTimer() }
+      }
+    }
   }
 </script>
